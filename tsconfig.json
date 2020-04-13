@@ -7,7 +7,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["ES2016"],
-    // "strict": true, // `strict` is commented because of this issue: https://github.com/prisma/prisma/issues/3774; all its options except `strictNullChecks` & `strictPropertyInitialization` are explicitly set below.
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
@@ -16,7 +15,8 @@
     "skipLibCheck": true, //, `skipLibCheck` is enabled until this is issue is fixed: https://github.com/prisma/nexus-prisma/issues/82,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "include": ["./src/**/*"],
   "exclude": ["prisma"]
