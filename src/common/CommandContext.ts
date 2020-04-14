@@ -1,4 +1,5 @@
-import {BaseCommandInterface} from './Base'
+import {BaseCommandInterface} from '../shared/Base'
+
 export class CommandContext {
   private command: BaseCommandInterface
 
