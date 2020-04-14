@@ -8,7 +8,3 @@ export interface BaseCommandInterface {
   handleMessage(): void
   sendMessage(input: string | MessageEmbed): void
 }
-
-export interface CommandComponent {
-  create: () => BaseCommandInterface
-}

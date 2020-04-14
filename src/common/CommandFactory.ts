@@ -1,4 +1,4 @@
-import {BaseCommandInterface, CommandComponent} from '../shared/Base'
+import {BaseCommandInterface} from '../shared/Base'
 
 export class CommandFactory {
   public static commands: {[key: string]: BaseCommandInterface} = {}
