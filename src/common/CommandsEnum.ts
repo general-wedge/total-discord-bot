@@ -1,4 +1,5 @@
 export enum CommandsEnum {
-  HeadsOrTails = 'ht',
-  RoundRobin = 'rr',
+  ht,
+  rr,
+  ask,
 }
