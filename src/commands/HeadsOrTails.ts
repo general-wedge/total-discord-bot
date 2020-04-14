@@ -1,17 +1,12 @@
-import config from '../config'
 import {CommandsEnum} from './../common/CommandsEnum'
-import {BaseCommandInterface} from '../common/Base'
+import {BaseCommandAbstract} from '../shared/BaseAbstract'
 
-export class HeadsOrTailsCommand implements BaseCommandInterface {
-  public name: string
-  public description: string
-  public message: any
-
-  constructor(_message: any = {}) {
-    this.name = `${config.prefix}${CommandsEnum.HeadsOrTails}`
+export class HeadsOrTails extends BaseCommandAbstract {
+  constructor() {
+    super()
+    this.command = `${CommandsEnum[CommandsEnum.ht]}`
     this.description =
       'This command flips a coin for heads or tails and posts the result.'
-    this.message = _message
   }
 
   public handleMessage() {
@@ -21,9 +16,5 @@ export class HeadsOrTailsCommand implements BaseCommandInterface {
     } else {
       this.sendMessage('You flipped tails!')
     }
-  }
-
-  public sendMessage(message: string): string {
-    return this.message.channel.send(message)
   }
 }

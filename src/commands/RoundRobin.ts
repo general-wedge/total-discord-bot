@@ -1,29 +1,17 @@
-import {BaseCommandInterface} from '../common/Base'
-import config from '../config'
 import {CommandsEnum} from '../common/CommandsEnum'
+import {BaseCommandAbstract} from '../shared/BaseAbstract'
 
-export class RoundRobinCommand implements BaseCommandInterface {
-  public message: any
-  public name: string
-  public description: string
-  public playerList: Array<string>
-
-  constructor(_message: any = {}) {
-    this.name = `${config.prefix}${CommandsEnum.RoundRobin}`
+export class RoundRobin extends BaseCommandAbstract {
+  constructor() {
+    super()
+    this.command = `${CommandsEnum[CommandsEnum.rr]}`
     this.description = 'Generates a round-robin order of players.'
-    this.message = _message
-    this.playerList = ['Austin', 'Karter', 'Mike', 'Dan', 'Brad', 'Derek']
   }
 
   public handleMessage(): void {
-    if (this.message.content === '-rr') {
-      const shuffledArray = this.shuffle(this.playerList)
-      this.sendMessage(this.formatReplyMessage(shuffledArray))
-    }
-  }
-
-  public sendMessage(message: string): string {
-    return this.message.channel.send(message)
+    if (this.args.length <= 0) return
+    const shuffledArray = this.shuffle(this.args)
+    this.sendMessage(this.formatReplyMessage(shuffledArray))
   }
 
   private formatReplyMessage(shuffledPlayerArray: Array<string>): string {
