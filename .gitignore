@@ -1,4 +1,4 @@
 .env
 node_modules/*
 .vs/*
-/src/assets/*
+/src/assets/data/*
