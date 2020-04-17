@@ -1,6 +1,6 @@
 {
   "name": "total-discord-bot",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Discord bot builder, makes it easy to set up a quick discord bot with custom commands",
   "main": "server.ts",
   "author": "austin howlett",

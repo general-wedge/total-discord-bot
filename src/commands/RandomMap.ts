@@ -1,3 +1,4 @@
+import {MapSpecificGoalList} from './../assets/data/static'
 import {Common} from './../common/Common'
 import {CommandsEnum} from '../common/CommandsEnum'
 import {BaseCommandAbstract} from '../shared/BaseAbstract'
@@ -7,6 +8,7 @@ import {MessageDelegate} from '../common/MessageDelegate'
 export class RandomMap extends BaseCommandAbstract {
   private maps: Array<string>
   private goals: Array<string>
+  private mapSpecificGoals: object
 
   constructor() {
     super()
@@ -14,13 +16,22 @@ export class RandomMap extends BaseCommandAbstract {
     this.description = 'This command picks a random map in Escape from Tarkov'
     this.maps = MapList // exported string array from /assets/data/static.ts
     this.goals = GoalsList // exported string array from /assets/data/static.ts
+    this.mapSpecificGoals = MapSpecificGoalList // exported string array from /assets/data/static.ts
   }
 
   public handleMessage() {
     let goal = ''
     let map = ''
+
     const shuffledMaps = Common.shuffle(this.maps)
     map = shuffledMaps[0]
+
+    Object.entries(this.mapSpecificGoals).map(([key, value]) => {
+      if (key === map.replace(/\s/g, '')) {
+        this.goals.concat(value)
+      }
+    })
+
     if (this.args.length > 0) {
       if (this.args.shift() === 'goal') {
         const shuffledGoals = Common.shuffle(this.goals)
@@ -31,6 +42,7 @@ export class RandomMap extends BaseCommandAbstract {
     const embed = MessageDelegate.getTarkovMessageEmbed('Random Map Wheel')
       .addField('Map', map)
       .addField('Random Goal', goal !== '' ? goal : 'No goal for this spin!')
+
     this.sendMessage(embed)
   }
 }
