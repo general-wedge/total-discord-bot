@@ -6,7 +6,7 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["ES2016"],
+    "lib": ["esnext"],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
