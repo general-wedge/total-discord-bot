@@ -3,4 +3,5 @@ export enum CommandsEnum {
   rr,
   ask,
   random,
+  goal,
 }

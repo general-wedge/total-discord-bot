@@ -1,4 +1,4 @@
-import Discord, {Message} from 'discord.js'
+import Discord from 'discord.js'
 import fetch from 'node-fetch'
 import querystring from 'querystring'
 import {CommandsEnum} from '../common/CommandsEnum'
