@@ -26,14 +26,14 @@ export class RandomMap extends BaseCommandAbstract {
     const shuffledMaps = Common.shuffle(this.maps)
     map = shuffledMaps[0]
 
-    Object.entries(this.mapSpecificGoals).map(([key, value]) => {
-      if (key === map.replace(/\s/g, '')) {
-        this.goals.concat(value)
-      }
-    })
-
     if (this.args.length > 0) {
       if (this.args.shift() === 'goal') {
+        Object.entries(this.mapSpecificGoals).map(([key, value]) => {
+          if (key === map.replace(/\s/g, '')) {
+            this.goals.concat(value)
+          }
+        })
+
         const shuffledGoals = Common.shuffle(this.goals)
         goal = shuffledGoals[0]
       }
