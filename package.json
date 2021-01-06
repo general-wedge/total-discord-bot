@@ -9,7 +9,7 @@
     "start:dev": "cross-env NODE_ENV=development ts-node-dev --no-notify --respawn --transpileOnly ./src/server.ts"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "discord.js": "^12.1.1",
     "dotenv": "^8.2.0",
     "fastify": "^2.15.1",
